@@ -1,0 +1,9 @@
+<?php
+
+namespace {{ namespace }};
+
+use VGirol\JsonApi\Resources\{{ baseClass }};
+
+class {{ class }} extends {{ baseClass }}
+{
+}

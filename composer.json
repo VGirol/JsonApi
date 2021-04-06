@@ -1,0 +1,85 @@
+{
+    "name": "vgirol/jsonapi",
+    "type": "library",
+    "description": "RESTfull JSON:Api for Laravel",
+    "keywords": [
+        "VGirol",
+        "JsonApi",
+        "RESTfull",
+        "Laravel",
+        "json api"
+    ],
+    "homepage": "http://github.com/VGirol/JsonApi",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vincent Girol",
+            "email": "vincent@girol.fr",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "laravel/framework": "^7.0|^8.0",
+        "spatie/laravel-json-api-paginate": "^1.6",
+        "spatie/laravel-query-builder": "^2.1|^3.0",
+        "vgirol/jsonapi-structure": "dev-master"
+    },
+    "require-dev": {
+        "dms/phpunit-arraysubset-asserts": "^0.2",
+        "infection/infection": "~0.14",
+        "laravel/legacy-factories": "^1.1",
+        "mockery/mockery": "^1.2",
+        "orchestra/testbench": "^5.0|^6.0",
+        "phpunit/phpunit": "^9.0",
+        "vgirol/formrequest-tester": "dev-master",
+        "vgirol/jsonapi-assert-laravel": "dev-master",
+        "vgirol/jsonapi-faker": "dev-master",
+        "vgirol/jsonapi-faker-laravel": "dev-master",
+        "vgirol/phpunit-exception": "dev-master"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "VGirol\\JsonApi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "VGirol\\JsonApi\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "setup": "bash install/setup.sh",
+        "post-update-cmd": [
+            "@setup"
+        ],
+        "test": "./vendor/bin/phpunit tests ",
+        "infection": "./vendor/bin/infection --coverage=build/coverage --threads=$(nproc) --configuration=infection.json --min-msi=70 --min-covered-msi=70",
+        "infection-only-covered": "./vendor/bin/infection --coverage=build/coverage --threads=$(nproc) --configuration=infection.json --only-covered",
+        "travis": [
+            "@test",
+            "@infection"
+        ],
+        "build": [
+            "@travis"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "VGirol\\JsonApi\\JsonApiServiceProvider"
+            ]
+        },
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

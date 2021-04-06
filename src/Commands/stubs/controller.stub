@@ -1,0 +1,11 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Routing\Controller as BaseController;
+use VGirol\JsonApi\Controllers\JsonApiRestFul;
+
+class {{ class }} extends BaseController
+{
+    use JsonApiRestFul;
+}

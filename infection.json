@@ -1,0 +1,35 @@
+{
+    "timeout": 10,
+    "source": {
+        "directories": [
+            "src"
+        ],
+        "excludes": [
+            "Commands",
+            "/JsonApiServiceProvider\\.php/",
+            "/JsonApiHandler\\.php/"
+        ]
+    },
+    "logs": {
+        "text": "build/infection/infection.log",
+        "summary": "build/infection/summary.log",
+        "perMutator": "build/infection/per-mutator.md",
+        "debug": "build/infection/debug.log",
+        "badge": {
+            "branch": "master"
+        }
+    },
+    "mutators": {
+        "@default": true,
+        "PublicVisibility": {
+            "ignore": [
+                "VGirol\\JsonApi\\Controllers\\JsonApiRestFul"
+            ]
+        },
+        "ProtectedVisibility": false
+    },
+    "testFramework":"phpunit",
+    "phpUnit": {
+        "configDir": "."
+    }
+}

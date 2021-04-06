@@ -1,0 +1,9 @@
+!.gitignore
+.vscode/
+build/
+docs/api/
+vendor/
+composer.lock
+.phpunit.result.cache
+.php_cs.cache
+.git_old/
